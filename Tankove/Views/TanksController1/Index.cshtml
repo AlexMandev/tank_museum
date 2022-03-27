@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Tankove.Models.Tanks>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Tankove</h2>
+        </div>
+        <div class="col-6">
+            Add Tank
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width100%">
+            <thead>
+                <tr>
+                    <th>
+                        Tank Name
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Nationality
+                    </th>
+                    <th>
+                        Engine Power
+                    </th>
+                    <th>
+                        Cannon
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="50%">@obj.Name</td>
+                        <td width="50%">@obj.Type</td>
+                        <td width="50%">@obj.Nationality</td>
+                        <td width="50%">@obj.EnginePower</td>
+                        <td width="50%">@obj.Cannon</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No Tanks exist.</p>
+    }
+
+</div>

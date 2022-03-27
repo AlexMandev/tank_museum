@@ -1,0 +1,95 @@
+﻿@model Tankove.Models.Employees;
+
+
+<form method="post" asp-action="Create">
+    <!--form to add a new employee-->
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Employee</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        First Name
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FirstName" type="text">
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        Last Name
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="LastName" type="text">
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Experience
+                    </div>
+                    <div class="col-8">
+                        <div class="form-textbox">
+                            <input asp-for="Experience" type="text">
+                            <span asp-validation-for="Experience" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Position
+                    </div>
+                    <div class="col-8">
+                        <div class="dropdown">
+                            <!-- dropdown menu with options -->
+                            <label for="position"></label>
+                            <select asp-for="Position" name="position" id="position">
+                                <option value="Мениджър">Мениджър</option>
+                                <option value="Екскурзовод">Екскурзовод</option>
+                                <option value="Счетоводител">Счетоводител</option>
+                                <option value="Охрана">Охрана</option>
+                                <option value="Секретар">Секретар</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <!-- create button - adds a object to the database -->
+                            <input type="submit" class="btn btn-info w-100" value="Create">
+                        </div>
+                        <div class="col">
+                            <!-- back button -->
+                            <a asp-action="Index" class="btn btn-primary">Back</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-4">
+                @* Empty *@
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts
+{ 
+    @{ <partial name="_ValidationScriptsPartial" />}
+}
+
+
+

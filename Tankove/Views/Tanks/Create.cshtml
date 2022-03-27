@@ -1,0 +1,121 @@
+﻿@model Tankove.Models.Tanks;
+
+
+<form method="post" asp-action="Create">
+    <!--form to add a new tank-->
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Tank</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        Name
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" type="text">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Type
+                    </div>
+                    <div class="col-8">
+                        <div class="dropdown">
+                            <!-- dropdown menu with options -->
+                            <label for="tank-type"></label>
+                            <select asp-for="Type" name="type" id="type">
+                                <option value="Light">Light</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Heavy">Heavy</option>
+                                <option value="Anti-Air">Anti-Air</option>
+                                <option value="Artilery">Artilery</option>
+                                <option value="Tank Destroyer">Tank Destroyer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Nationality
+                    </div>
+                    <div class="col-8">
+                        <div class="dropdown">
+                            <!-- dropdown menu with options -->
+                            <label for="nationality"></label>
+                            <select asp-for="Nationality" name="nationality" id="nationality">
+                                <option value="USSR">USSR</option>
+                                <option value="USA">USA</option>
+                                <option value="Germany">Germany</option>
+                                <option value="UK">UK</option>
+                                <option value="France">France</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Japan">Japan</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Engine Power (h.p.)
+                    </div>
+                    <div class="col-8">
+                        <div class="form-textbox">
+                            <input asp-for="EnginePower" type="text">
+                            <span asp-validation-for="EnginePower" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        Cannon (mm)
+                    </div>
+                    <div class="col-8">
+                        <div class="form-textbox">
+                            <input asp-for="Cannon" type="text">
+                            <span asp-validation-for="Cannon" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <!-- create button - adds a object to the database -->
+                            <input type="submit" class="btn btn-info w-100" value="Create">
+                        </div>
+                        <div class="col">
+                            <!-- back button -->
+                            <a asp-action="Index" class="btn btn-primary">Back</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-4">
+                @* Empty *@
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+

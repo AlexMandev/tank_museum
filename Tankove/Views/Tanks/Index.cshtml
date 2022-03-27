@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Tankove.Models.Tanks>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Tanks</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Tanks" asp-action="Create" class="btn btn-primary">
+                Add Tank
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table id="table-tanks"  class="table table-bordered table-striped" style:"width125%">
+            <thead>
+                <tr>
+                    <th>
+                        Tank Name
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Nationality
+                    </th>
+                    <th>
+                        Engine Power
+                    </th>
+                    <th>
+                        Cannon
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="25%">@obj.Name</td>
+                        <td width="25%">@obj.Type</td>
+                        <td width="25%">@obj.Nationality</td>
+                        <td width="25%">@obj.EnginePower</td>
+                        <td width="25%">@obj.Cannon</td>
+                        <td class="text-center">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Tanks" asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger">
+                                    Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No Tanks exist.</p>
+    }
+
+</div>
